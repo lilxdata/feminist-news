@@ -16,6 +16,10 @@ class ArticleCell: UITableViewCell {
     var articleToDisplay:Article?
     func displayArticle(_ article: Article) {
         
+        //clean up cell before displaying next article
+        articleImageView.image = nil
+        headlineLabel.text = ""
+        
         articleToDisplay = article
         //Set headline
         headlineLabel.text = articleToDisplay!.title
@@ -25,10 +29,10 @@ class ArticleCell: UITableViewCell {
         
         //create url string
         
-        var urlImageString = articleToDisplay!.urlToImage
+        var urlImageString = articleToDisplay!.urlToImage!
         
         //create url
-         var url = URL(string: urlImageString!)
+         var url = URL(string: urlImageString)
         
         //check that url != nil
         
@@ -45,10 +49,18 @@ class ArticleCell: UITableViewCell {
         //create data task
         
         var dataTask = session.dataTask(with: url!) { (data, response, error) in
+            //check for data / no errors
             if error == nil && data != nil {
-                
-            }
-        }
+                //make sure we are displaying the correct image
+                if self.articleToDisplay!.urlToImage == urlImageString {
+                    //display  image data  in image view
+                    DispatchQueue.main.async {
+                         self.articleImageView.image = UIImage(data: data!)
+                    }
+                } // end second if
+               
+            } // end first if
+        } // end data task
         
         // start data task 
         dataTask.resume()

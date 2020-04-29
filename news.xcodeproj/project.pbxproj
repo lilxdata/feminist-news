@@ -18,6 +18,7 @@
 		0402831B2458AA8D00071A1F /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402831A2458AA8D00071A1F /* ArticleModel.swift */; };
 		0402831D2458BEF700071A1F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402831C2458BEF700071A1F /* DetailViewController.swift */; };
 		040283212458CB6C00071A1F /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040283202458CB6C00071A1F /* ArticleCell.swift */; };
+		0402832B2458FC9D00071A1F /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402832A2458FC9D00071A1F /* CacheManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		0402831A2458AA8D00071A1F /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		0402831C2458BEF700071A1F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		040283202458CB6C00071A1F /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
+		0402832A2458FC9D00071A1F /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				0402830B2458A73B00071A1F /* Assets.xcassets */,
 				0402830D2458A73B00071A1F /* LaunchScreen.storyboard */,
 				040283102458A73B00071A1F /* Info.plist */,
+				0402832A2458FC9D00071A1F /* CacheManager.swift */,
 			);
 			path = news;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				040283212458CB6C00071A1F /* ArticleCell.swift in Sources */,
+				0402832B2458FC9D00071A1F /* CacheManager.swift in Sources */,
 				040283192458A9F400071A1F /* ArticleService.swift in Sources */,
 				040283172458A75400071A1F /* Article.swift in Sources */,
 				040283072458A73700071A1F /* ViewController.swift in Sources */,
