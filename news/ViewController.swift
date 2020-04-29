@@ -27,7 +27,31 @@ class ViewController: UIViewController {
         model.delegate = self //assign view controller as delegate
         model.getArticles()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // detect which article the user selected
+        // first, detect index path
+        let indexPath = tableView.indexPathForSelectedRow
+        
+        guard indexPath != nil else {
+            //no row selected
+            return
+        }
+        
+        //get article
+        let article = articles[indexPath!.row]
+        
+        // get reference to detail view controller
+        
+        let detailVC = segue.destination as! DetailViewController
+        // pass article url to detail view controller
+        
+        detailVC.articleUrl = article.url!
+    }
 }
+
+
+
 
 extension ViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

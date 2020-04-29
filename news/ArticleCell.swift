@@ -31,6 +31,15 @@ class ArticleCell: UITableViewCell {
         
         var urlImageString = articleToDisplay!.urlToImage!
         
+        // check cache manager to see if we've already downloaded the image 
+        
+        if let imageData = CacheManager.retrieveData(urlImageString) {
+            //image has been cached
+            //set image view and return
+            articleImageView.image = UIImage(data: imageData)
+            return
+        }
+        
         //create url
          var url = URL(string: urlImageString)
         
@@ -44,16 +53,20 @@ class ArticleCell: UITableViewCell {
         
         //get URL session
         
-        var session = URLSession.shared
+        let session = URLSession.shared
         
         //create data task
         
-        var dataTask = session.dataTask(with: url!) { (data, response, error) in
+        let dataTask = session.dataTask(with: url!) { (data, response, error) in
             //check for data / no errors
             if error == nil && data != nil {
+                
+                //save data in cache
+                CacheManager.saveData(urlImageString, data!)
+                
                 //make sure we are displaying the correct image
                 if self.articleToDisplay!.urlToImage == urlImageString {
-                    //display  image data  in image view
+                    //display image data in image view
                     DispatchQueue.main.async {
                          self.articleImageView.image = UIImage(data: data!)
                     }
